@@ -1,5 +1,9 @@
 FROM alpine:3.20.3
 
+ARG WORDPRESS_DB_NAME \
+    WORDPRESS_DB_USER \
+    WORDPRESS_DB_PASSWORD
+
 RUN apk add --no-cache \
     php82 \
     php82-fpm \

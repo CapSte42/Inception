@@ -1,10 +1,6 @@
 #!/bin/sh
 set -e
 
-WORDPRESS_DB_NAME="${WORDPRESS_DB_NAME:-wp}"
-WORDPRESS_DB_USER="${WORDPRESS_DB_USER:-wpusr}"
-WORDPRESS_DB_PASSWORD="${WORDPRESS_DB_PASSWORD:-wppass}"
-
 # Setup WordPress se non presente
 if [ ! -f "/var/www/wp-config.php" ]; then
     curl -O https://wordpress.org/latest.tar.gz
@@ -18,8 +14,7 @@ if [ ! -f "/var/www/wp-config.php" ]; then
     sed -i "s/localhost/mariadb/" wp-config.php
 
     # Puoi aggiungere qui codice per creare l'admin e un utente standard via wp-cli
-    # ma per la parte mandatory basta la configurazione DB.
-
+    
     chown -R nobody:nogroup /var/www || true
 fi
 

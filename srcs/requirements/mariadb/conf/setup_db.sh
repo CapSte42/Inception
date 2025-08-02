@@ -5,6 +5,10 @@ set -e
 mkdir -p /run/mysqld
 chown -R mysql:mysql /run/mysqld
 
+# Assicurati che la directory del database abbia i permessi corretti
+chown -R mysql:mysql /var/lib/mysql
+chmod -R 755 /var/lib/mysql
+
 # Inizializza il DB se serve
 if [ ! -d "/var/lib/mysql/mysql" ]; then
     mariadb-install-db --user=mysql --datadir=/var/lib/mysql
