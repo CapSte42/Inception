@@ -3,7 +3,7 @@ services:
     build:
       context: ./requirements/mariadb
     container_name: mariadb
-    #restart: always
+    restart: always
     environment:
       MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
       MYSQL_USER: ${WORDPRESS_DB_USER}
@@ -19,7 +19,7 @@ services:
     build:
       context: ./requirements/wordpress
     container_name: wordpress
-    #restart: always
+    restart: always
     environment:
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
@@ -42,7 +42,7 @@ services:
     build:
       context: ./requirements/nginx
     container_name: nginx
-    #restart: always
+    restart: always
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
     ports:
